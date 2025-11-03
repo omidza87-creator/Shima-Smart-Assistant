@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دستیار هوشمند مدیریتی - شیما کفش</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.8;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header .company-name {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ffffff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle {
+            font-size: 1.4em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .header .tagline {
+            font-size: 1.15em;
+            opacity: 0.9;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .content {
+            padding: 60px 40px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.3em;
+            color: #667eea;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 4px solid #764ba2;
+            font-weight: 800;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .intro-text {
+            font-size: 1.25em;
+            color: #555;
+            line-height: 2;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            border-right: 6px solid #667eea;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .highlight-box h3 {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .highlight-box p {
+            font-size: 1.15em;
+            color: #555;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: rotate(45deg);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        .feature-card .icon {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.7em;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            font-size: 1.08em;
+            line-height: 1.8;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .feature-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-card ul li {
+            padding: 10px 0;
+            padding-right: 30px;
+            position: relative;
+            font-size: 1.05em;
+        }
+
+        .feature-card ul li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .benefit-box {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #f0f0f0;
+            border-top: 5px solid #667eea;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .benefit-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            border-top-color: #764ba2;
+        }
+
+        .benefit-box .icon {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+        }
+
+        .benefit-box h3 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .benefit-box p {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+
+        .stats-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-card .number {
+            font-size: 3.2em;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .stat-card .label {
+            font-size: 1.15em;
+            opacity: 0.95;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .workflow-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 50px;
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .workflow-steps {
+            display: grid;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .workflow-step {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .workflow-step:hover {
+            transform: translateX(-10px);
+        }
+
+        .workflow-step .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            font-weight: 800;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .workflow-step .step-content h4 {
+            font-size: 1.6em;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .workflow-step .step-content p {
+            font-size: 1.1em;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            right: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-marker {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            flex-shrink: 0;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-marker .week {
+            font-size: 0.8em;
+            opacity: 0.9;
+        }
+
+        .timeline-marker .number {
+            font-size: 2em;
+            line-height: 1;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .timeline-content h4 {
+            font-size: 1.5em;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .timeline-content p {
+            font-size: 1.1em;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .comparison-table {
+            overflow-x: auto;
+            margin: 40px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-radius: 15px;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: right;
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+
+        .comparison-table td {
+            padding: 20px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 1.1em;
+        }
+
+        .comparison-table tr:hover {
+            background: #f9f9f9;
+        }
+
+        .comparison-table .before {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+
+        .comparison-table .after {
+            color: #27ae60;
+            font-weight: 600;
+        }
+
+        .comparison-table .improvement {
+            color: #667eea;
+            font-weight: 700;
+            font-size: 1.05em;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 50px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            font-weight: 800;
+        }
+
+        .cta-section p {
+            font-size: 1.3em;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 20px 50px;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-top: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .footer h3 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .footer p {
+            font-size: 1.1em;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        .footer .contact {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .footer .contact-item {
+            display: inline-block;
+            margin: 0 20px;
+            font-size: 1.15em;
+        }
+
+        /* Flow Diagram */
+        .flow-diagram {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .flow-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .flow-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px 30px;
+            border-radius: 15px;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .flow-box.team {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .flow-box.central {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            font-size: 1.3em;
+            padding: 35px 40px;
+        }
+
+        .flow-box.manager {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            font-size: 1.3em;
+            padding: 35px 40px;
+        }
+
+        .flow-arrow {
+            font-size: 2em;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .flow-arrow-down {
+            font-size: 3em;
+            color: #667eea;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .header {
+                padding: 40px 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .header .company-name {
+                font-size: 1.8em;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                right: 30px;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+                align-items: flex-start;
+                padding-right: 40px;
+            }
+
+            .timeline-marker {
+                position: absolute;
+                right: 0;
+            }
+
+            .comparison-table {
+                font-size: 0.9em;
+            }
+
+            .workflow-step {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <div class="company-name">🥾 شیما کفش</div>
+                <h1>دستیار هوشمند مدیریتی</h1>
+                <p class="subtitle">راهکاری هوشمند برای مدیریت بهتر کسب‌وکار شما</p>
+                <p class="tagline">با هوش مصنوعی، کارها را ساده‌تر کنید</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Introduction -->
+            <div class="section">
+                <h2 class="section-title">چالش‌های روزانه شما را می‌شناسیم</h2>
+                <p class="intro-text">
+                    مدیریت یک شرکت تولیدی کار آسانی نیست. هر روز باید پیگیر سفارشات، تولید، فروش، انبار و ده‌ها موضوع دیگر باشید. 
+                    اطلاعات پراکنده است، گزارش‌گیری زمان‌بر است، و تصمیم‌گیری بر اساس حدس و گمان صورت می‌گیرد.
+                </p>
+
+                <div class="highlight-box">
+                    <h3>💡 راه‌حل ما چیست؟</h3>
+                    <p>
+                        یک دستیار هوشمند شخصی که 24 ساعته در دسترس شماست. دستیاری که می‌تواند:
+                    </p>
+                    <p>
+                        ✓ گزارش‌های روزانه را خودکار برایتان آماده کند<br>
+                        ✓ از طریق تلگرام با شما در ارتباط باشد<br>
+                        ✓ به سوالات شما در هر زمان پاسخ دهد<br>
+                        ✓ وضعیت تولید، فروش و انبار را پیگیری کند<br>
+                        ✓ هشدارهای هوشمند برای مشکلات احتمالی ارسال کند
+                    </p>
+                </div>
+            </div>
+
+            <!-- Key Features -->
+            <div class="section">
+                <h2 class="section-title">قابلیت‌های دستیار هوشمند</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="icon">📊</span>
+                        <h3>گزارش‌گیری خودکار</h3>
+                        <p>
+                            هر روز صبح، گزارش کاملی از وضعیت شرکت در تلگرام دریافت کنید:
+                        </p>
+                        <ul>
+                            <li>تعداد سفارشات جدید و در حال انجام</li>
+                            <li>میزان تولید روز گذشته</li>
+                            <li>وضعیت موجودی کالا و مواد اولیه</li>
+                            <li>فروش روزانه و هفتگی</li>
+                            <li>مشکلات و هشدارهای مهم</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <span class="icon">💬</span>
+                        <h3>چت هوشمند با داده‌ها</h3>
+                        <p>
+                            در هر زمان و از هر جایی، سوال بپرسید:
+                        </p>
+                        <ul>
+                            <li>"چند کفش امروز تولید شد؟"</li>
+                            <li>"سفارش آقای احمدی چه وضعیتی داره؟"</li>
+                            <li>"موجودی انبار چقدره؟"</li>
+                            <li>"فروش این هفته نسبت به هفته قبل چطوره؟"</li>
+                            <li>"کدوم محصول بیشترین فروش رو داره؟"</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <span class="icon">🔔</span>
+                        <h3>هشدارهای هوشمند</h3>
+                        <p>
+                            دیگر نگران از دست دادن اطلاعات مهم نباشید:
+                        </p>
+                        <ul>
+                            <li>موجودی کالا یا مواد اولیه رو به اتمام است</li>
+                            <li>سفارشی دارای تاخیر است</li>
+                            <li>مشتری مهمی درخواست پیگیری دارد</li>
+                            <li>فروش کاهش یافته است</li>
+                            <li>نقصی در تولید گزارش شده</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <span class="icon">📝</span>
+                        <h3>ثبت سریع اطلاعات</h3>
+                        <p>
+                            فقط با یک پیام صوتی یا متنی در تلگرام:
+                        </p>
+                        <ul>
+                            <li>سفارش جدید ثبت کنید</li>
+                            <li>یادداشت و یادآوری بگذارید</li>
+                            <li>گزارش مشکل ارسال کنید</li>
+                            <li>وضعیت تولید را به‌روز کنید</li>
+                            <li>نظر و بازخورد ثبت کنید</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <span class="icon">📈</span>
+                        <h3>تحلیل و پیشنهاد</h3>
+                        <p>
+                            دستیار شما نه تنها گزارش می‌دهد، بلکه تحلیل هم می‌کند:
+                        </p>
+                        <ul>
+                            <li>روندهای فروش را شناسایی می‌کند</li>
+                            <li>محصولات پرفروش را معرفی می‌کند</li>
+                            <li>نقاط ضعف را نشان می‌دهد</li>
+                            <li>پیشنهادات عملی ارائه می‌دهد</li>
+                            <li>مقایسه با دوره‌های قبل</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <span class="icon">👥</span>
+                        <h3>هماهنگی تیمی</h3>
+                        <p>
+                            ارتباط بهتر با تیم و همکاران:
+                        </p>
+                        <ul>
+                            <li>ارسال دستور کار به تیم تولید</li>
+                            <li>پیگیری وظایف محول شده</li>
+                            <li>دریافت گزارش از واحدهای مختلف</li>
+                            <li>مدیریت یادآورها و قرارها</li>
+                            <li>اطلاع‌رسانی هماهنگ به همه</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Input Methods -->
+            <div class="section">
+                <h2 class="section-title">🔗 اطلاعات از کجا می‌آید؟</h2>
+                
+                <p class="intro-text">
+                    دستیار هوشمند به هیچ نرم‌افزار پیچیده‌ای نیاز ندارد. 
+                    تیم‌های شما به راحتی اطلاعات را وارد می‌کنند.
+                </p>
+
+                <div class="workflow-section">
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <div class="step-number">📱</div>
+                            <div class="step-content">
+                                <h4>تلگرام (راحت‌ترین روش)</h4>
+                                <p>
+                                    هر تیم یک بات تلگرام دارد. فقط کافیست پیام بدهند:<br>
+                                    <strong>مدیر تولید:</strong> "امروز 200 جفت کفش سایز 42 تولید شد"<br>
+                                    <strong>انبار دار:</strong> "موجودی چسب: 10 کیلو"<br>
+                                    <strong>فروشنده:</strong> "سفارش جدید آقای احمدی: 50 جفت کفش قهوه‌ای"<br>
+                                    دستیار خودکار اطلاعات را ثبت و دسته‌بندی می‌کند.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-number">🎤</div>
+                            <div class="step-content">
+                                <h4>ورودی صوتی (بدون تایپ)</h4>
+                                <p>
+                                    تیم‌ها می‌توانند فقط ویس بفرستند. دستیار صوت را به متن تبدیل کرده و 
+                                    اطلاعات را استخراج می‌کند. حتی لهجه محلی را هم می‌فهمد!
+                                    راحت‌ترین روش برای کسانی که با تایپ راحت نیستند.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-number">📸</div>
+                            <div class="step-content">
+                                <h4>عکس و اسکن (OCR)</h4>
+                                <p>
+                                    آیا فاکتور یا لیست دستنویس دارید؟ فقط عکس بگیرید و ارسال کنید.
+                                    دستیار با OCR فارسی، متن را استخراج و در سیستم ثبت می‌کند.
+                                    حتی دستنوشته‌های خوانا را هم تشخیص می‌دهد.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-number">📊</div>
+                            <div class="step-content">
+                                <h4>آپلود فایل اکسل</h4>
+                                <p>
+                                    اگر تیم‌ها از قبل در اکسل کار می‌کنند، می‌توانند فایل را مستقیم آپلود کنند.
+                                    دستیار داده‌ها را خوانده و وارد سیستم می‌کند.
+                                    نیازی به تایپ دوباره نیست!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 40px;">
+                    <h3>🎯 نکته کلیدی</h3>
+                    <p>
+                        دستیار هوشمند نیازی به دسترسی به نرم‌افزار حسابداری یا انبار ندارد. 
+                        فقط با همکاری تیم‌ها، اطلاعات به صورت ساده و روزانه وارد می‌شود.
+                    </p>
+                    <p>
+                        <strong>مزیت:</strong> شروع سریع، بدون پیچیدگی فنی، بدون وابستگی به سیستم‌های قدیمی.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Team Structure -->
+            <div class="section">
+                <h2 class="section-title">👥 ارتباط با تیم‌های مختلف</h2>
+                
+                <p class="intro-text">
+                    دستیار هوشمند نقطه مرکزی ارتباط بین شما و تیم‌هاست.
+                </p>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="icon">👨‍🏭</span>
+                        <h3>تیم تولید</h3>
+                        <p>هر روز گزارش تولید را ارسال می‌کنند:</p>
+                        <ul>
+                            <li>تعداد کفش تولیدی</li>
+                            <li>سایزها و رنگ‌ها</li>
+                            <li>نقص‌ها و مشکلات</li>
+                            <li>مواد اولیه مصرفی</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <span class="icon">📦</span>
+                        <h3>تیم انبار</h3>
+                        <p>وضعیت موجودی را به‌روز نگه می‌دارند:</p>
+                        <ul>
+                            <li>موجودی محصولات آماده</li>
+                            <li>موجودی مواد اولیه</li>
+                            <li>ورود و خروج کالا</li>
+                            <li>هشدار کمبود</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <span class="icon">🤝</span>
+                        <h3>تیم فروش</h3>
+                        <p>سفارشات و مشتریان را ثبت می‌کنند:</p>
+                        <ul>
+                            <li>سفارشات جدید</li>
+                            <li>وضعیت تحویل</li>
+                            <li>بازخورد مشتریان</li>
+                            <li>پیگیری‌های لازم</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <span class="icon">🔍</span>
+                        <h3>کنترل کیفیت</h3>
+                        <p>مشکلات کیفی را گزارش می‌دهند:</p>
+                        <ul>
+                            <li>نقص‌های شناسایی شده</li>
+                            <li>عکس از محصولات معیوب</li>
+                            <li>علت نقص</li>
+                            <li>پیشنهاد رفع مشکل</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="stats-showcase" style="margin-top: 40px;">
+                    <div class="stat-card">
+                        <div class="number">4</div>
+                        <div class="label">تیم متصل به سیستم</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">تلگرام</div>
+                        <div class="label">واسط ساده ارتباط</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">یک</div>
+                        <div class="label">دستیار برای همه</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">روزانه</div>
+                        <div class="label">گزارش‌گیری منظم</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flow Diagram -->
+            <div class="section">
+                <h2 class="section-title">🔄 جریان اطلاعات</h2>
+                
+                <div class="flow-diagram">
+                    <h3 style="color: #667eea; font-size: 1.8em; margin-bottom: 40px;">
+                        از تیم تا مدیر - در یک سیستم یکپارچه
+                    </h3>
+
+                    <!-- Teams Row -->
+                    <div class="flow-row">
+                        <div class="flow-box team">👨‍🏭 تیم تولید</div>
+                        <div class="flow-box team">📦 تیم انبار</div>
+                        <div class="flow-box team">🤝 تیم فروش</div>
+                        <div class="flow-box team">🔍 کنترل کیفیت</div>
+                    </div>
+
+                    <div class="flow-arrow-down">⬇️</div>
+
+                    <!-- Input Methods -->
+                    <div class="flow-row">
+                        <div style="color: #666; font-size: 1.1em; font-weight: 500;">
+                            تلگرام • صوت • عکس • اکسل
+                        </div>
+                    </div>
+
+                    <div class="flow-arrow-down">⬇️</div>
+
+                    <!-- Central System -->
+                    <div class="flow-row">
+                        <div class="flow-box central">🤖 دستیار هوشمند<br><small>جمع‌آوری • تحلیل • خلاصه</small></div>
+                    </div>
+
+                    <div class="flow-arrow-down">⬇️</div>
+
+                    <!-- Manager -->
+                    <div class="flow-row">
+                        <div class="flow-box manager">👔 مدیرعامل<br><small>گزارش کامل • هشدارها • تحلیل‌ها</small></div>
+                    </div>
+
+                    <p style="margin-top: 40px; color: #666; font-size: 1.15em; line-height: 1.9;">
+                        <strong>مزیت کلیدی:</strong> دیگر نیازی نیست مدیر با هر تیم جداگانه تماس بگیرد. 
+                        دستیار هوشمند اطلاعات را از همه جمع‌آوری کرده و گزارش یکپارچه ارائه می‌دهد.
+                    </p>
+                </div>
+            </div>
+
+            <!-- How It Works -->
+            <div class="section">
+                <h2 class="section-title">چگونه کار می‌کند؟</h2>
+                
+                <div class="workflow-section">
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>📱 تلگرام را باز کنید</h4>
+                                <p>
+                                    دستیار هوشمند در تلگرام منتظر شماست. نیازی به نصب برنامه جدید یا یادگیری سیستم پیچیده نیست.
+                                    همان تلگرامی که هر روز استفاده می‌کنید!
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>💬 سوال بپرسید یا دستور بدهید</h4>
+                                <p>
+                                    با زبان ساده و روزمره خودتان بنویسید یا صوت بفرستید. دستیار شما را می‌فهمد و پاسخ می‌دهد.
+                                    مثلاً: "گزارش فروش این ماه"، "سفارش جدید برای 100 جفت کفش سایز 42"
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>⚡ پاسخ فوری دریافت کنید</h4>
+                                <p>
+                                    دستیار بلافاصله اطلاعات مورد نیاز را پیدا می‌کند، تحلیل می‌کند و به صورت خلاصه و مفید 
+                                    برایتان ارسال می‌کند. گاهی با نمودار، گاهی با جدول، گاهی فقط با یک پاسخ ساده.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>🎯 تصمیم بگیرید و اقدام کنید</h4>
+                                <p>
+                                    با اطلاعات دقیق و به‌موقع، تصمیمات بهتری بگیرید. دستیار حتی پیشنهادهایی هم می‌دهد 
+                                    که به شما کمک می‌کند سریع‌تر و هوشمندانه‌تر عمل کنید.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Benefits -->
+            <div class="section">
+                <h2 class="section-title">مزایای استفاده از دستیار هوشمند</h2>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-box">
+                        <div class="icon">⏰</div>
+                        <h3>صرفه‌جویی در زمان</h3>
+                        <p>
+                            دیگر نیازی نیست ساعت‌ها صرف جمع‌آوری اطلاعات و تهیه گزارش کنید. 
+                            دستیار همه چیز را خودکار انجام می‌دهد.
+                        </p>
+                    </div>
+
+                    <div class="benefit-box">
+                        <div class="icon">💰</div>
+                        <h3>کاهش هزینه‌ها</h3>
+                        <p>
+                            با مدیریت بهتر موجودی، کاهش اتلاف و تصمیم‌گیری دقیق‌تر، 
+                            هزینه‌های غیرضروری را کاهش دهید.
+                        </p>
+                    </div>
+
+                    <div class="benefit-box">
+                        <div class="icon">📊</div>
+                        <h3>تصمیم‌گیری بهتر</h3>
+                        <p>
+                            با داده‌های دقیق و تحلیل‌های هوشمند، تصمیمات آگاهانه‌تری بگیرید 
+                            و ریسک را کاهش دهید.
+                        </p>
+                    </div>
+
+                    <div class="benefit-box">
+                        <div class="icon">🎯</div>
+                        <h3>تمرکز روی کار اصلی</h3>
+                        <p>
+                            وقت خود را صرف مدیریت استراتژیک و رشد کسب‌وکار کنید، 
+                            نه کارهای تکراری و اداری.
+                        </p>
+                    </div>
+
+                    <div class="benefit-box">
+                        <div class="icon">🚀</div>
+                        <h3>افزایش بهره‌وری</h3>
+                        <p>
+                            با خودکارسازی فرآیندها و دسترسی سریع به اطلاعات، 
+                            بهره‌وری شما و تیمتان چندین برابر می‌شود.
+                        </p>
+                    </div>
+
+                    <div class="benefit-box">
+                        <div class="icon">🔒</div>
+                        <h3>امنیت اطلاعات</h3>
+                        <p>
+                            تمام داده‌های شما به صورت امن و محرمانه روی سرور اختصاصی 
+                            ذخیره می‌شود و در دسترس نیست.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div class="section">
+                <h2 class="section-title">نتایج ملموس</h2>
+                
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>شاخص</th>
+                                <th>وضعیت فعلی</th>
+                                <th>با دستیار هوشمند</th>
+                                <th>بهبود</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>زمان تهیه گزارش روزانه</strong></td>
+                                <td class="before">1-2 ساعت</td>
+                                <td class="after">خودکار (5 دقیقه)</td>
+                                <td class="improvement">⬆ 90٪ سریع‌تر</td>
+                            </tr>
+                            <tr>
+                                <td><strong>دسترسی به اطلاعات</strong></td>
+                                <td class="before">تماس و پرس‌وجو</td>
+                                <td class="after">فوری در تلگرام</td>
+                                <td class="improvement">⬆ دسترسی 24/7</td>
+                            </tr>
+                            <tr>
+                                <td><strong>پیگیری سفارشات</strong></td>
+                                <td class="before">دستی و نامنظم</td>
+                                <td class="after">خودکار و دقیق</td>
+                                <td class="improvement">⬆ صفر فراموشی</td>
+                            </tr>
+                            <tr>
+                                <td><strong>تشخیص مشکلات</strong></td>
+                                <td class="before">با تاخیر</td>
+                                <td class="after">هشدار فوری</td>
+                                <td class="improvement">⬆ واکنش سریع‌تر</td>
+                            </tr>
+                            <tr>
+                                <td><strong>هماهنگی با تیم</strong></td>
+                                <td class="before">تماس‌های متعدد</td>
+                                <td class="after">پیام‌های متمرکز</td>
+                                <td class="improvement">⬆ ارتباط بهتر</td>
+                            </tr>
+                            <tr>
+                                <td><strong>تحلیل و پیش‌بینی</strong></td>
+                                <td class="before">حدس و گمان</td>
+                                <td class="after">داده‌محور و دقیق</td>
+                                <td class="improvement">⬆ تصمیم آگاهانه</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="stats-showcase">
+                    <div class="stat-card">
+                        <div class="number">90٪</div>
+                        <div class="label">صرفه‌جویی در زمان</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">24/7</div>
+                        <div class="label">دسترسی به اطلاعات</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">صفر</div>
+                        <div class="label">فراموشی و اشتباه</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">100٪</div>
+                        <div class="label">شفافیت اطلاعات</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Implementation -->
+            <div class="section">
+                <h2 class="section-title">راه‌اندازی در 4 هفته</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span class="week">هفته</span>
+                            <span class="number">1</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>🎯 شناخت و برنامه‌ریزی</h4>
+                            <p>
+                                آشنایی با فرآیندهای کاری شما، شناسایی نیازها و اولویت‌ها. 
+                                طراحی دستیار متناسب با کسب‌وکار شیما کفش.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span class="week">هفته</span>
+                            <span class="number">2</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>⚙️ نصب و پیکربندی</h4>
+                            <p>
+                                راه‌اندازی دستیار، اتصال به سیستم‌های موجود (اگر وجود دارد)، 
+                                و تنظیم گزارش‌ها و هشدارهای خودکار.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span class="week">هفته</span>
+                            <span class="number">3</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>📚 آموزش و تست</h4>
+                            <p>
+                                آموزش کامل به شما و تیمتان، تست قابلیت‌ها، 
+                                و اطمینان از درک صحیح دستیار از نیازهای شما.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span class="week">هفته</span>
+                            <span class="number">4</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>🚀 راه‌اندازی نهایی</h4>
+                            <p>
+                                شروع رسمی کار با دستیار هوشمند، بهینه‌سازی بر اساس بازخورد، 
+                                و پشتیبانی کامل در ماه اول.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What's Included -->
+            <div class="section">
+                <h2 class="section-title">آنچه دریافت می‌کنید</h2>
+                
+                <div class="highlight-box">
+                    <h3>📦 بسته کامل شامل:</h3>
+                    <p>
+                        ✅ <strong>دستیار هوشمند اختصاصی</strong> - طراحی شده مخصوص شیما کفش<br>
+                        ✅ <strong>ربات تلگرام</strong> - آماده استفاده در تلگرام شخصی شما<br>
+                        ✅ <strong>داشبورد وب</strong> - برای مشاهده گزارش‌های تفصیلی<br>
+                        ✅ <strong>گزارش‌های خودکار</strong> - روزانه، هفتگی و ماهانه<br>
+                        ✅ <strong>سیستم هشدار</strong> - برای رویدادهای مهم<br>
+                        ✅ <strong>آموزش کامل</strong> - به شما و تیمتان<br>
+                        ✅ <strong>پشتیبانی 6 ماهه</strong> - رایگان و کامل<br>
+                        ✅ <strong>به‌روزرسانی‌های مجانی</strong> - قابلیت‌های جدید<br>
+                        ✅ <strong>امنیت کامل داده‌ها</strong> - روی سرور اختصاصی
+                    </p>
+                </div>
+
+                <div class="stats-showcase" style="margin-top: 40px;">
+                    <div class="stat-card">
+                        <div class="number">4</div>
+                        <div class="label">هفته راه‌اندازی</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">6</div>
+                        <div class="label">ماه پشتیبانی رایگان</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">24/7</div>
+                        <div class="label">دسترسی به دستیار</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">100٪</div>
+                        <div class="label">امنیت اطلاعات</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How Data Flows -->
+            <div class="cta-section">
+                <h2>🔗 چطور اطلاعات جمع‌آوری می‌شود؟</h2>
+                <p>
+                    دستیار هوشمند نیازی به اتصال به نرم‌افزارهای پیچیده ندارد. 
+                    هر تیم به سادگی اطلاعات خود را از طریق تلگرام ارسال می‌کند.
+                </p>
+                <p>
+                    <strong>مثال:</strong> مدیر تولید صبح پیام می‌دهد: "امروز 200 جفت کفش تولید شد"<br>
+                    انبار دار می‌گوید: "موجودی سایز 42 کم است"<br>
+                    فروشنده می‌گوید: "سفارش جدید 50 جفت"
+                </p>
+                <p>
+                    دستیار همه این اطلاعات را جمع می‌کند، تحلیل می‌کند و گزارش کامل برای شما آماده می‌کند.
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <h3>🤖 راهکارهای هوشمندسازی کسب‌وکار</h3>
+            <p>
+                ما کسب‌وکارهای کوچک و متوسط را با هوش مصنوعی هوشمندتر می‌کنیم
+            </p>
+            <p style="margin-top: 25px; font-style: italic; opacity: 0.9;">
+                "هوشمندتر کار کنید، نه سخت‌تر - با اتوماسیون هوشمند"
+            </p>
+            <div class="contact">
+                <div class="contact-item">📧 info@example.com</div>
+                <div class="contact-item">📱 0912-XXX-XXXX</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
